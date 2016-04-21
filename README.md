@@ -43,6 +43,7 @@
 ### Configuration
  - Local
   - If you want to change / want to have new configuration, add them to local directory. You can use the dev configurations as reference.
+
 ### Setup
  - Docker Login
   - Before doing anything, login to docker hub using command ```docker login``` 
@@ -62,7 +63,7 @@
  - Compose configuration override
   - If you want to override the default docker compose file you can do it using docker compose override file. More info at https://docs.docker.com/compose/extends/ 
  
-References:
+### References:
 - Base Image - https://github.com/phusion/baseimage-docker
 - Ubuntu Image - https://hub.docker.com/r/innoraft/ubuntu/
 - Mysql Image - https://hub.docker.com/_/mysql/
