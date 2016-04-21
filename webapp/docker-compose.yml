@@ -1,0 +1,31 @@
+web:
+  image: innoraft/apache2
+  ports:
+    - "82:80"
+    - "8027:22"
+  volumes:
+    - ../docroot:/var/www/html/
+    - ./configuration/dev/apache2/vhost/sites-available:/etc/apache2/sites-available/
+    - ./configuration/dev/apache2/vhost/sites-enabled:/etc/apache2/sites-enabled/
+    - ./logs/apache2:/var/log/apache2/
+  environment:
+    - AUTHORIZED_KEYS="**NONE**"
+  links:
+    - db
+    - memcached
+db:
+  image: mysql:5.6
+  entrypoint: 
+    - /localdb-run.sh
+  environment:
+    - MYSQL_ROOT_PASSWORD=admin
+  volumes:
+    - ./database:/var/lib/mysql/
+    - ./configuration/dev/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+    - ./logs/mysql:/var/log/mysql/
+    - ./configuration/dev/mysql/localdb-run.sh:/localdb-run.sh
+memcached:
+  image: innoraft/memcached
+  volumes:
+    - ./configuration/dev/memcached/memcached.conf:/etc/memcached.conf
+    - ./logs/memcached/memcached.log:/var/log/memcached.log
