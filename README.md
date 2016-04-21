@@ -38,7 +38,8 @@
 ## How to use
 
 ### Docroot
- - There is a directory called docroot in the repo, put your code inside that directory.
+ - There is a directory called docroot in the repo, put your code inside that directory
+
 ### Configuration
  - Local
   - If you want to change / want to have new configuration, add them to local directory. You can use the dev configurations as reference.
